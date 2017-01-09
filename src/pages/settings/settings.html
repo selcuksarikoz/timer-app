@@ -1,0 +1,67 @@
+
+<ion-header>
+
+  <ion-navbar color="navbar">
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>{{"workingTime"|translate}}</ion-label>
+      <ion-select [(ngModel)]="totalSeconds" (ngModelChange)="customize($event,1)" cancelText="{{'cancel'|translate}}" okText="{{'ok'|translate}}">
+        <ion-option value="10">10 {{"minutes"|translate}}</ion-option>
+        <ion-option value="15">15 {{"minutes"|translate}}</ion-option>
+        <ion-option value="20">20 {{"minutes"|translate}}</ion-option>
+        <ion-option value="25">25 {{"minutes"|translate}}</ion-option>
+        <ion-option value="30">30 {{"minutes"|translate}}</ion-option>
+        <ion-option value="35">35 {{"minutes"|translate}}</ion-option>
+        <ion-option value="40">40 {{"minutes"|translate}}</ion-option>
+        <ion-option value="45">45 {{"minutes"|translate}}</ion-option>
+        <ion-option value="50">50 {{"minutes"|translate}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{"additionalTime"|translate}}</ion-label>
+      <ion-select [(ngModel)]="extraSeconds" (ngModelChange)="customize($event,2)" cancelText="{{'cancel'|translate}}" okText="{{'ok'|translate}}">
+        <ion-option value="5">5 {{"minutes"|translate}}</ion-option>
+        <ion-option value="10">10 {{"minutes"|translate}}</ion-option>
+        <ion-option value="15">15 {{"minutes"|translate}}</ion-option>
+        <ion-option value="20">20 {{"minutes"|translate}}</ion-option>
+        <ion-option value="25">25 {{"minutes"|translate}}</ion-option>
+        <ion-option value="30">30 {{"minutes"|translate}}</ion-option>
+        <ion-option value="35">35 {{"minutes"|translate}}</ion-option>
+        <ion-option value="40">40 {{"minutes"|translate}}</ion-option>
+        <ion-option value="45">45 {{"minutes"|translate}}</ion-option>
+        <ion-option value="50">50 {{"minutes"|translate}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{"attentionTime"|translate}}</ion-label>
+      <ion-select [(ngModel)]="attention" (ngModelChange)="customize($event,3)" cancelText="{{'cancel'|translate}}" okText="{{'ok'|translate}}">
+        <ion-option value="1">{{"every"|translate}} 1 {{"minute"|translate}}</ion-option>
+        <ion-option value="5">{{"every"|translate}} 5 {{"minutes"|translate}}</ion-option>
+        <ion-option value="10">{{"every"|translate}} 10 {{"minutes"|translate}}</ion-option>
+        <ion-option value="15">{{"every"|translate}} 15 {{"minutes"|translate}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{"language"|translate}}</ion-label>
+      <ion-select [(ngModel)]="language" (ngModelChange)="customize($event,4)" cancelText="{{'cancel'|translate}}" okText="{{'ok'|translate}}">
+        <ion-option value="tr">Türkçe</ion-option>
+        <ion-option value="en">English</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{"sleepSettings"|translate}}</ion-label>
+      <ion-select [(ngModel)]="sleepMode" (ngModelChange)="customize($event,5)" cancelText="{{'cancel'|translate}}" okText="{{'ok'|translate}}">
+        <ion-option value="enabled">{{"enabled"|translate}}</ion-option>
+        <ion-option value="disabled">{{"disabled"|translate}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>

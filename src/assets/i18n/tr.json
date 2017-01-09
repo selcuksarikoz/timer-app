@@ -1,0 +1,20 @@
+{
+  "done":"BİTTİ",
+  "pause":"DURDU",
+  "additionalTime":"Ekstra Süre",
+  "additionalTimeQuest":"Ekstra süre kullanmak ister misiniz?",
+  "yes":"Evet",
+  "no":"Hayır",
+  "cancel":"İptal",
+  "ok":"Tamam",
+  "workingTime":"Çalışma Zamanı",
+  "attentionTime":"Ekstra Süre",
+  "minutes":"Dakika",
+  "minute":"Dakika",
+  "every":"Her",
+  "language":"Dil",
+  "settings":"Ayarlar",
+  "sleepSettings":"Uyku Modu",
+  "enabled":"Açık",
+  "disabled":"Kapalı"
+}

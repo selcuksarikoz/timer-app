@@ -1,0 +1,20 @@
+{
+  "done":"DONE",
+  "pause":"PAUSED",
+  "additionalTime":"Additional Time",
+  "additionalTimeQuest":"Do you want additional time?",
+  "yes":"Yes",
+  "no":"No",
+  "cancel":"Cancel",
+  "ok":"Ok",
+  "workingTime":"Working Time",
+  "attentionTime":"Attention Time",
+  "minutes":"Minutes",
+  "minute":"Minute",
+  "every":"Every",
+  "language":"Language",
+  "settings":"Settings",
+  "sleepSettings":"Sleep Mode",
+  "enabled":"Enabled",
+  "disabled":"Disabled"
+}

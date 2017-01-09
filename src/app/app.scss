@@ -1,0 +1,76 @@
+* {
+    overflow: hidden;
+}
+
+.vertical-middle {
+    position: absolute;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    width: calc(100% - 32px);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.relative {
+    position: relative;
+}
+
+.show-minute {
+    position: relative;
+    z-index: 10;
+    & h1 {
+        display: block;
+        position: relative;
+        font-size: 8rem;
+        font-weight: 600;
+        color: #e4e4e4;
+        padding: 0;
+        margin: 0;
+        &.red {
+            color: #ff0000;
+        }
+        &.green {
+            color: green;
+        }
+    }
+}
+
+@media screen and (max-width:768px) and (min-width:420px) {
+    .show-minute {
+        & h1 {
+            font-size: 8rem;
+        }
+    }
+}
+
+@media screen and (max-width:420px) {
+    .show-minute {
+        & h1 {
+            font-size: calc(100vw / 8);
+            font-size: 8rem;
+        }
+    }
+}
+
+@media screen and (orientation:landscape) {
+    .show-minute {
+        & h1 {
+            font-size: 16rem;
+        }
+    }
+}
+
+.home {
+    position: relative;
+}
+
+.infinite {
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@import "animate";

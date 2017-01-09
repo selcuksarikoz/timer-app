@@ -1,0 +1,35 @@
+<ion-header showWhen="android">
+  <ion-navbar color="navbar">
+    <ion-title>
+      {{title}}
+    </ion-title>
+
+    <ion-buttons start>
+      <button (click)="settingsPage()" ion-button><ion-icon ios="ios-settings" md="md-settings"></ion-icon></button>
+    </ion-buttons>
+
+    <ion-buttons end>
+      <button (click)="refresh()" ion-button><ion-icon ios="ios-refresh-circle" md="md-refresh-circle"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="relative home">
+  <div class="vertical-middle">
+
+    <div class="animated bounceIn show-minute" text-center (click)="start()">
+      <h1 [ngClass]="{'animated rubberBand': totalSeconds < 300,'green':totalSeconds == 0}">{{homeLabel}}</h1>
+
+      <!--<h1 [hidden]="!waitBool" [ngClass]="{'animated jello red':waitBool}">{{"pause"|translate}}</h1>-->
+    </div>
+
+  </div>
+
+  <audio hidden id="beepaudio">
+    <source src="assets/sounds/a_simple_beep.mp3" type="audio/mpeg">
+  </audio>
+  <audio hidden id="endaudio">
+    <source src="assets/sounds/end.mp3" type="audio/mpeg">
+  </audio>
+
+</ion-content>
