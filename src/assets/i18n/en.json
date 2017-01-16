@@ -16,5 +16,6 @@
   "settings":"Settings",
   "sleepSettings":"Sleep Mode",
   "enabled":"Enabled",
-  "disabled":"Disabled"
+  "disabled":"Disabled",
+  "work":"WORK"
 }

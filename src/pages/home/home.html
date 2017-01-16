@@ -14,12 +14,16 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="relative home">
+<ion-content padding class="relative home" (tap)="start()" [ngClass]="{'background-green':totalSeconds == 0, 'background-yellow':click == 1}"  has-bouncing="false">
   <div class="vertical-middle">
 
-    <div class="animated bounceIn show-minute" text-center (click)="start()">
-      <h1 [ngClass]="{'animated rubberBand': totalSeconds < 300,'green':totalSeconds == 0}">{{homeLabel}}</h1>
-
+    <div class="show-minute" text-center >
+      <!--<h1 *ngIf="homeLabel.min" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}"><span>{{homeLabel.min}}</span><i>:</i><span>{{homeLabel.sec}}</span></h1>-->
+      <h1 *ngIf="homeLabel.min" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}"><span>{{homeLabel.min}}</span><i>:</i><span>{{homeLabel.sec}}</span></h1>
+      <h1 *ngIf="homeLabel.done" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}">{{homeLabel.done}}</h1>
+      <h1 *ngIf="homeLabel.work" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}">{{homeLabel.work}}</h1>
+      
+      
       <!--<h1 [hidden]="!waitBool" [ngClass]="{'animated jello red':waitBool}">{{"pause"|translate}}</h1>-->
     </div>
 
@@ -29,6 +33,9 @@
     <source src="assets/sounds/a_simple_beep.mp3" type="audio/mpeg">
   </audio>
   <audio hidden id="endaudio">
+    <source src="assets/sounds/end.mp3" type="audio/mpeg">
+  </audio>
+  <audio hidden id="endaudio2">
     <source src="assets/sounds/end.mp3" type="audio/mpeg">
   </audio>
 

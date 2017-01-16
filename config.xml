@@ -86,5 +86,5 @@
   <feature name="StatusBar">
     <param name="ios-package" onload="false" value="CDVStatusBar"/>
   </feature>
-  <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
+  <icon src="resources/ios/icon/icon-small@3x.png"/>
 </widget>

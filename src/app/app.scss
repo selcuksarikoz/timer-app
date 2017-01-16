@@ -3,16 +3,20 @@
 }
 
 .vertical-middle {
-    position: absolute;
-    height: auto;
-    top: 50%;
-    left: 50%;
-    width: calc(100% - 32px);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    // position: absolute;
+    // height: auto;
+    // top: 50%;
+    // left: 50%;
+    // width: calc(100% - 32px);
+    // -webkit-transform: translate(-50%, -50%);
+    // -moz-transform: translate(-50%, -50%);
+    // -ms-transform: translate(-50%, -50%);
+    // -o-transform: translate(-50%, -50%);
+    // transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .relative {
@@ -24,20 +28,50 @@
     z-index: 10;
     & h1 {
         display: block;
+        // letter-spacing: .5rem;
         position: relative;
         font-size: 8rem;
         font-weight: 600;
-        color: #e4e4e4;
         padding: 0;
         margin: 0;
+
+        & span {
+            // color: deeppink;
+            letter-spacing: .5rem;
+            
+        }
+        & i {
+            // color: blueviolet;
+            font-style: normal;
+            line-height: .95;
+            display: inline-block;
+            letter-spacing: .5rem;
+        }
         &.red {
             color: #ff0000;
         }
         &.green {
             color: green;
         }
+       
     }
 }
+
+.background-green {
+     background-color: green !important;
+}
+
+.background-yellow {
+    background-color: yellow !important;
+}
+
+.white {
+    color: #fff;
+} 
+
+.black {
+    color: #000;
+} 
 
 @media screen and (max-width:768px) and (min-width:420px) {
     .show-minute {
@@ -66,6 +100,8 @@
 
 .home {
     position: relative;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 .infinite {
