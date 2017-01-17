@@ -14,7 +14,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="relative home" (tap)="start()" [ngClass]="{'background-green':totalSeconds == 0, 'background-yellow':click == 1}"  has-bouncing="false">
+<ion-content padding class="relative home" (tap)="start()" [ngClass]="{'background-green':totalSeconds == 0, 'background-yellow':click == 1}" no-bounce>
   <div class="vertical-middle">
 
     <div class="show-minute" text-center >
@@ -38,5 +38,8 @@
   <audio hidden id="endaudio2">
     <source src="assets/sounds/end.mp3" type="audio/mpeg">
   </audio>
+  <audio hidden id="first25">
+    <source src="assets/sounds/first25.mp3" type="audio/mpeg">
+  </audio>  
 
 </ion-content>

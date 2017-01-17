@@ -46,6 +46,8 @@
             line-height: .95;
             display: inline-block;
             letter-spacing: .5rem;
+            border: 1px solid red;
+            background: blue;
         }
         &.red {
             color: #ff0000;
