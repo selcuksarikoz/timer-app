@@ -19,9 +19,9 @@
 
     <div class="show-minute" text-center >
       <!--<h1 *ngIf="homeLabel.min" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}"><span>{{homeLabel.min}}</span><i>:</i><span>{{homeLabel.sec}}</span></h1>-->
-      <h1 *ngIf="homeLabel.min" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}"><span>{{homeLabel.min}}</span><i>:</i><span>{{homeLabel.sec}}</span></h1>
-      <h1 *ngIf="homeLabel.done" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}">{{homeLabel.done}}</h1>
-      <h1 *ngIf="homeLabel.work" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}">{{homeLabel.work}}</h1>
+      <div *ngIf="homeLabel.min" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}" class="timer"><div class="time">{{homeLabel.min}}</div><div class="colon">:</div><div class="time">{{homeLabel.sec}}</div></div>
+      <div *ngIf="homeLabel.done" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}" class="timer">{{homeLabel.done}}</div>
+      <div *ngIf="homeLabel.work" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}" class="timer">{{homeLabel.work}}</div>
       
       
       <!--<h1 [hidden]="!waitBool" [ngClass]="{'animated jello red':waitBool}">{{"pause"|translate}}</h1>-->
