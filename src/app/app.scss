@@ -38,12 +38,13 @@
         & span {
             // color: deeppink;
             letter-spacing: .5rem;
+            display: inline-block;
             
         }
         & i {
             // color: blueviolet;
             font-style: normal;
-            line-height: .95;
+            line-height: 1.4;
             display: inline-block;
             letter-spacing: .5rem;
             border: 1px solid red;
