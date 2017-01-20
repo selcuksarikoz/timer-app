@@ -25,8 +25,7 @@ export class HomePage {
   constructor(public platform: Platform, public translate: TranslateService, public navCtrl: NavController, public alertCtrl: AlertController) {
 
     window.localStorage.setItem("sleep", "enabled");
-    
-
+  
     this.title = "Timer"
 
     this.refresh();
@@ -43,9 +42,11 @@ export class HomePage {
       }
     }
   }
+
+  
   intervalStart(){
     BackgroundMode.enable();
-    let brightnessValue: number = 0.3;
+    let brightnessValue: number = 0.9;
     Brightness.setBrightness(brightnessValue);
 
     this.interval = window.setInterval(()=> {
@@ -83,7 +84,6 @@ export class HomePage {
     // let touch = <HTMLAudioElement>document.getElementById("touch");
     // touch.play();
     let first25 = <HTMLAudioElement>document.getElementById("first25");
-    
 
     if (!this.isInterval) {
       console.log("tıklandı")
@@ -103,15 +103,12 @@ export class HomePage {
 
         this.intervalStart();
         this.waitBool = false;
-        first25.play();
+        // first25.play();
 
       } else if (this.totalSeconds == 0) {
 
         let settings = JSON.parse(window.localStorage.getItem("settings"));
         
-
-        
-
          if(this.platform.is('android')) {
 
             let confirm = this.alertCtrl.create({
