@@ -26,7 +26,7 @@ export class HomePage {
 
     window.localStorage.setItem("sleep", "enabled");
   
-    this.title = "Timer"
+    this.title = "Pomodoro"
 
     this.refresh();
     this.click = 0;
