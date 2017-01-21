@@ -21,7 +21,7 @@ export class HomePage {
   waitBool:boolean = false;
   last5minFinish:boolean = false;
   click:number;
-  timeSpeed: number = 1000; // Time Speed 1000 normal, 10 fast
+  timeSpeed: number = 10; // Time Speed 1000 normal, 10 fast
 
   constructor(public platform: Platform, public translate: TranslateService, public navCtrl: NavController, public alertCtrl: AlertController) {
 

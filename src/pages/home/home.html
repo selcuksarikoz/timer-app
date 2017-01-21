@@ -1,51 +1,55 @@
 <ion-header showWhen="android">
-  <ion-navbar color="navbar">
-    <ion-title>
-      {{title}}
-    </ion-title>
+    <ion-navbar color="navbar">
+        <ion-title>
+            {{title}}
+        </ion-title>
 
-    <ion-buttons start>
-      <button (click)="settingsPage()" ion-button><ion-icon ios="ios-settings" md="md-settings"></ion-icon></button>
-    </ion-buttons>
+        <ion-buttons start>
+            <button (click)="settingsPage()" ion-button><ion-icon ios="ios-settings" md="md-settings"></ion-icon></button>
+        </ion-buttons>
 
-    <ion-buttons end>
-      <button (click)="refresh()" ion-button><ion-icon ios="ios-refresh-circle" md="md-refresh-circle"></ion-icon></button>
-    </ion-buttons>
-  </ion-navbar>
+        <ion-buttons end>
+            <button (click)="refresh()" ion-button><ion-icon ios="ios-refresh-circle" md="md-refresh-circle"></ion-icon></button>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding class="relative home" (tap)="start()" [ngClass]="{'background-green':totalSeconds == 0, 'background-yellow':click == 1}" no-bounce>
-  <div class="vertical-middle">
+<ion-content padding class="relative home" (tap)="start()" [ngClass]="{'background-green':totalSeconds == 0, 'background-yellow':click == 1}"  no-bounce>
+    <div class="vertical-middle">
 
-    <div class="show-minute" text-center >
-      <!--<h1 *ngIf="homeLabel.min" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}"><span>{{homeLabel.min}}</span><i>:</i><span>{{homeLabel.sec}}</span></h1>-->
-      <div *ngIf="homeLabel.min" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}" class="timer"><div class="time">{{homeLabel.min}}</div><div class="colon">:</div><div class="time">{{homeLabel.sec}}</div></div>
-      <div *ngIf="homeLabel.done" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}" class="timer">{{homeLabel.done}}</div>
-      <div *ngIf="homeLabel.work" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}" class="timer">{{homeLabel.work}}</div>
+        <div class="show-minute" text-center>
+            <!--<h1 *ngIf="homeLabel.min" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}"><span>{{homeLabel.min}}</span><i>:</i><span>{{homeLabel.sec}}</span></h1>-->
+            <div *ngIf="homeLabel.min" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}" class="timer">
+                <div class="time">{{homeLabel.min}}</div>
+                <div class="colon">:</div>
+                <div class="time">{{homeLabel.sec}}</div>
+            </div>
+            <div *ngIf="homeLabel.done" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}" class="timer">{{homeLabel.done}}</div>
+            <div *ngIf="homeLabel.work" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}" class="timer">{{homeLabel.work}}</div>
 
-      <!--<h1 [hidden]="!waitBool" [ngClass]="{'animated jello red':waitBool}">{{"pause"|translate}}</h1>-->
+            <!--<h1 [hidden]="!waitBool" [ngClass]="{'animated jello red':waitBool}">{{"pause"|translate}}</h1>-->
+        </div>
+
     </div>
 
-  </div>
-  
-  <!-- 25 min içerisinde pause olunca gösterilecek -->
-  <button class="reset-timer" (tap)="refresh()" [hidden]="!waitBool">reset</button>
-  
-  <!-- 5 min içerisinde pause olunca gösterilecek -->
-  <button class="reset-timer" (tap)="refresh()" [hidden]="!last5minFinish">finish</button>
-  
+    <!-- 25 min içerisinde pause olunca gösterilecek -->
+    <button class="reset-timer" (tap)="refresh()" [hidden]="!waitBool">{{'reset'|translate}}</button>
 
-  <audio hidden id="beepaudio">
+    <!-- 5 min içerisinde pause olunca gösterilecek -->
+    <button class="reset-timer" (tap)="refresh()" [hidden]="!last5minFinish">{{'finish'|translate}}</button>
+
+
+    <audio hidden id="beepaudio">
     <source src="assets/sounds/a_simple_beep.mp3" type="audio/mpeg">
   </audio>
-  <audio hidden id="endaudio">
+    <audio hidden id="endaudio">
     <source src="assets/sounds/end.mp3" type="audio/mpeg">
   </audio>
-  <audio hidden id="endaudio2">
+    <audio hidden id="endaudio2">
     <source src="assets/sounds/end.mp3" type="audio/mpeg">
   </audio>
-  <audio hidden id="first25">
+    <audio hidden id="first25">
     <source src="assets/sounds/first25.mp3" type="audio/mpeg">
-  </audio>  
+  </audio>
 
 </ion-content>
