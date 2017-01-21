@@ -59,6 +59,17 @@
     }
 }
 
+.reset-timer {
+    color: #fff;
+    font-size: 1.5em;
+    background-color: transparent;
+    border: none 0;
+    position: absolute;
+    bottom: 3em;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
 .background-green {
      background-color: green !important;
 }

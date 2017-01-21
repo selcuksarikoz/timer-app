@@ -19,6 +19,7 @@ export class HomePage {
   homeLabel: any;
   attentionCounter: number = 0;
   waitBool:boolean = false;
+  last5minFinish:boolean = false;
   click:number;
   timeSpeed: number = 1000; // Time Speed 1000 normal, 10 fast
 
@@ -53,6 +54,7 @@ export class HomePage {
       this.totalSeconds--;
       this.checkTime(this.totalSeconds);
       // console.log(this.totalSeconds);
+ 
       let minutes: number = Math.floor((this.totalSeconds % 3600) / 60);
       let seconds: number = (this.totalSeconds % 3600) % 60;
       // this.homeLabel = this.addZero(minutes) + ":" + this.addZero(seconds);
@@ -83,7 +85,7 @@ export class HomePage {
     
     // let touch = <HTMLAudioElement>document.getElementById("touch");
     // touch.play();
-    let first25 = <HTMLAudioElement>document.getElementById("first25");
+   
 
     if (!this.isInterval) {
       console.log("tıklandı")
@@ -99,11 +101,13 @@ export class HomePage {
           );
       }
 
+
+
       if (this.totalSeconds > 0) {
 
         this.intervalStart();
         this.waitBool = false;
-        // first25.play();
+        
 
       } else if (this.totalSeconds == 0) {
 
@@ -165,8 +169,15 @@ export class HomePage {
     let audio = <HTMLAudioElement>document.getElementById("beepaudio");
     let endaudio = <HTMLAudioElement>document.getElementById("endaudio");
     let endaudio2 = <HTMLAudioElement>document.getElementById("endaudio2");
-
+    let first25 = <HTMLAudioElement>document.getElementById("first25");
     let settings = JSON.parse(window.localStorage.getItem("settings"));
+
+
+    
+    
+    if (param == 1499) {
+      first25.play();
+    }
 
     if (param == 0) {
       window.clearInterval(this.interval);

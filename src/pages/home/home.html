@@ -22,12 +22,18 @@
       <div *ngIf="homeLabel.min" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}" class="timer"><div class="time">{{homeLabel.min}}</div><div class="colon">:</div><div class="time">{{homeLabel.sec}}</div></div>
       <div *ngIf="homeLabel.done" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}" class="timer">{{homeLabel.done}}</div>
       <div *ngIf="homeLabel.work" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}" class="timer">{{homeLabel.work}}</div>
-      
-      
+
       <!--<h1 [hidden]="!waitBool" [ngClass]="{'animated jello red':waitBool}">{{"pause"|translate}}</h1>-->
     </div>
 
   </div>
+  
+  <!-- 25 min içerisinde pause olunca gösterilecek -->
+  <button class="reset-timer" (tap)="refresh()" [hidden]="!waitBool">reset</button>
+  
+  <!-- 5 min içerisinde pause olunca gösterilecek -->
+  <button class="reset-timer" (tap)="refresh()" [hidden]="!last5minFinish">finish</button>
+  
 
   <audio hidden id="beepaudio">
     <source src="assets/sounds/a_simple_beep.mp3" type="audio/mpeg">
