@@ -21,7 +21,7 @@ export class HomePage {
   waitBool:boolean = false;
   last5minFinish:boolean = false;
   click:number;
-  timeSpeed: number = 10; // Time Speed 1000 normal, 10 fast
+  timeSpeed: number = 1000; // Time Speed 1000 normal, 10 fast
 
   constructor(public platform: Platform, public translate: TranslateService, public navCtrl: NavController, public alertCtrl: AlertController) {
 
@@ -44,10 +44,23 @@ export class HomePage {
     }
   }
 
+  resetTimer() {
+    console.log("resetTimer");
+    this.refresh();
+  }
+
+  resetTimer5Min(){ 
+    console.log("resetTimer5Min");
+    this.click = 0;
+    this.refresh();
+    this.last5minFinish = false;
+  }
+
   
   intervalStart(){
+    console.log("intervalStart");  
     BackgroundMode.enable();
-    let brightnessValue: number = 0.9;
+    let brightnessValue: number = 1;
     Brightness.setBrightness(brightnessValue);
 
     this.interval = window.setInterval(()=> {
@@ -88,7 +101,7 @@ export class HomePage {
    
 
     if (!this.isInterval) {
-      console.log("tıklandı")
+      console.log("Start başladı")
 
       let sleepMode = window.localStorage.getItem("sleep");
 
@@ -107,9 +120,13 @@ export class HomePage {
 
         this.intervalStart();
         this.waitBool = false;
+        this.last5minFinish = false;
+        console.log("Total second 0 dan büyük");
         
 
       } else if (this.totalSeconds == 0) {
+
+        console.log("Total second 0");
 
         let settings = JSON.parse(window.localStorage.getItem("settings"));
         
@@ -142,6 +159,11 @@ export class HomePage {
              this.totalSeconds = settings.extraSeconds;
              this.click += 1;
              console.log(this.click);
+
+             console.log("!!!!!Burada Son 5 dk ya başladı!!!!!!");
+             this.waitBool = false; // reset butonunu gizliyoruz.
+             this.last5minFinish = false; // last 5 min i açıyoruz.
+
              this.intervalStart();
            } else {
              this.click = 0;
@@ -162,23 +184,25 @@ export class HomePage {
       window.clearInterval(this.interval);
       this.isInterval = false;
       this.waitBool = true;
+
+      if (this.click > 0 ) {
+        this.last5minFinish = true;
+        this.waitBool = false;
+      }
+
     }
   }
 
   checkTime(param: any) {
-    let audio = <HTMLAudioElement>document.getElementById("beepaudio");
-    let endaudio = <HTMLAudioElement>document.getElementById("endaudio");
-    let endaudio2 = <HTMLAudioElement>document.getElementById("endaudio2");
-    let first25 = <HTMLAudioElement>document.getElementById("first25");
+    // let audio = <HTMLAudioElement>document.getElementById("beepaudio");
+    // let endaudio = <HTMLAudioElement>document.getElementById("endaudio");
+    // let endaudio2 = <HTMLAudioElement>document.getElementById("endaudio2");
+    // let first25 = <HTMLAudioElement>document.getElementById("first25");
     let settings = JSON.parse(window.localStorage.getItem("settings"));
 
 
     
     
-    if (param == 1499) {
-      first25.play();
-    }
-
     if (param == 0) {
       window.clearInterval(this.interval);
       console.log("timer bitti");
@@ -186,10 +210,10 @@ export class HomePage {
       
       if(this.click == 0 ) {
             console.log("audio");
-            endaudio.play();
+            // endaudio.play();
           } else {
             console.log("audio2");
-            endaudio2.play();
+            // endaudio2.play();
       }
 
       BackgroundMode.disable();
@@ -198,7 +222,7 @@ export class HomePage {
     } else if (param == 300) {
       if(this.platform.is('android')) {
         console.log("son 5 dakika kaldı")
-        audio.play();
+        // audio.play();
       }
     }
 
@@ -206,7 +230,7 @@ export class HomePage {
       if(this.platform.is('android')) {
         console.log("uyarı sesi");
         this.attentionCounter = 0;
-        audio.play();
+        // audio.play();
       }
     }
 
@@ -254,6 +278,8 @@ export class HomePage {
     }
     // this.start();
   }
+
+
 
 
 }

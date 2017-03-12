@@ -14,14 +14,15 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding class="relative home" (tap)="start()" [ngClass]="{'background-green':totalSeconds == 0, 'background-yellow':click == 1}"  no-bounce>
-    <div class="vertical-middle">
+<ion-content padding class="relative home" [ngClass]="{'background-green':totalSeconds == 0, 'background-yellow':click == 1, 'reset-wrapper':totalSeconds > 1}"  no-bounce>
+
+    <div class="vertical-middle" (tap)="start()" >
 
         <div class="show-minute" text-center>
             <!--<h1 *ngIf="homeLabel.min" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}"><span>{{homeLabel.min}}</span><i>:</i><span>{{homeLabel.sec}}</span></h1>-->
             <div *ngIf="homeLabel.min" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}" class="timer">
                 <div class="time">{{homeLabel.min}}</div>
-                <div class="colon">:</div>
+                <div class="colon"></div>
                 <div class="time">{{homeLabel.sec}}</div>
             </div>
             <div *ngIf="homeLabel.done" [ngClass]="{'white':(totalSeconds && click) == 0, 'black':click == 1}" class="timer">{{homeLabel.done}}</div>
@@ -33,13 +34,13 @@
     </div>
 
     <!-- 25 min içerisinde pause olunca gösterilecek -->
-    <button class="reset-timer" (tap)="refresh()" [hidden]="!waitBool">{{'reset'|translate}}</button>
+    <button class="reset-timer" (tap)="resetTimer()" [hidden]="!waitBool">{{'reset'|translate}}</button>
 
     <!-- 5 min içerisinde pause olunca gösterilecek -->
-    <button class="reset-timer" (tap)="refresh()" [hidden]="!last5minFinish">{{'finish'|translate}}</button>
+    <button class="reset-timer black" (tap)="resetTimer5Min()" [hidden]="!last5minFinish">{{'finish'|translate}}</button>
 
-
-    <audio hidden id="beepaudio">
+<!-- 
+ <audio hidden id="beepaudio">
     <source src="assets/sounds/a_simple_beep.mp3" type="audio/mpeg">
   </audio>
     <audio hidden id="endaudio">
@@ -50,6 +51,6 @@
   </audio>
     <audio hidden id="first25">
     <source src="assets/sounds/first25.mp3" type="audio/mpeg">
-  </audio>
+  </audio> -->
 
 </ion-content>

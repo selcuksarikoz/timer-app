@@ -2,6 +2,10 @@
     overflow: hidden;
 }
 
+.scroll-content {
+    padding: 0 !important;
+}
+
 .vertical-middle {
     // position: absolute;
     // height: auto;
@@ -27,9 +31,8 @@
     position: relative;
     z-index: 10;
 
-
     & .timer {
-        display: block;
+        display: flex;
         // letter-spacing: .5rem;
         position: relative;
         font-size: 8rem;
@@ -37,17 +40,18 @@
         padding: 0;
         margin: 0;
 
-        & div {
-            display: inline-block;
-        }
+        & div {}
 
         & .time {
             letter-spacing: .5rem;            
         }
         & .colon {
-            line-height: 1.4;
             letter-spacing: .5rem;
-            // background: blue;
+        }
+        & .colon:after {
+            content: " \3a ";
+            top: -0.1em;
+            position: relative;
         }
         &.red {
             color: #ff0000;
@@ -63,11 +67,18 @@
     color: #fff;
     font-size: 1.5em;
     background-color: transparent;
+    border:0 none;
+    // background-color: red;
+    z-index: 10000;
     border: none 0;
     position: absolute;
     bottom: 3em;
     left: 50%;
     transform: translate(-50%, 0);
+}
+
+.reset-timer.last5 {
+        // color: #000;
 }
 
 .background-green {
