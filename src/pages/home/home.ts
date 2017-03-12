@@ -27,7 +27,7 @@ export class HomePage {
 
     window.localStorage.setItem("sleep", "enabled");
   
-    this.title = "Pomodoro"
+    this.title = "Easy Pomodoro Timer - Stay Focus"
 
     this.refresh();
     this.click = 0;
