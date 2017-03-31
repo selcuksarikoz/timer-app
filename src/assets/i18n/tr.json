@@ -19,5 +19,6 @@
     "disabled": "Kapalı",
     "work": "ÇALIŞ",
     "reset": "yenile",
-    "finish": "bitir"
+    "finish": "bitir",
+    "attentionSound":"Uyarı Sesi"
 }

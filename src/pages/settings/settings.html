@@ -50,6 +50,13 @@
       </ion-select>
     </ion-item>
     <ion-item>
+      <ion-label>{{"attentionSound"|translate}}</ion-label>
+      <ion-select [(ngModel)]="attentionSound" (ngModelChange)="customize($event,6)" cancelText="{{'cancel'|translate}}" okText="{{'ok'|translate}}">
+        <ion-option value="true">{{"enabled"|translate}}</ion-option>
+        <ion-option value="false">{{"disabled"|translate}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
       <ion-label>{{"language"|translate}}</ion-label>
       <ion-select [(ngModel)]="language" (ngModelChange)="customize($event,4)" cancelText="{{'cancel'|translate}}" okText="{{'ok'|translate}}">
         <ion-option value="tr">Türkçe</ion-option>

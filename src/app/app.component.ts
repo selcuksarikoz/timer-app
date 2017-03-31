@@ -29,7 +29,8 @@ export class MyApp {
       let data = {
         totalSeconds: 1500,
         extraSeconds: 300,
-        attention: 300
+        attention: 300,
+        sound:true,
       }
       window.localStorage.setItem("settings", JSON.stringify(data));
     }

@@ -20,6 +20,7 @@ export class SettingsPage {
   attention:any;
   language:any;
   sleepMode:string;
+  attentionSound:boolean;
 
   constructor(public translate:TranslateService, public navCtrl: NavController) {
 
@@ -32,7 +33,8 @@ export class SettingsPage {
     this.extraSeconds = Math.floor(settings.extraSeconds / 60);
     this.attention  = Math.floor(settings.attention / 60);
     this.language = lang.language
-    this.sleepMode = sleep
+    this.sleepMode = sleep,
+    this.attentionSound = settings.sound;
   }
 
   ionViewDidLoad() {
@@ -71,6 +73,9 @@ export class SettingsPage {
       }
       this.sleepMode = param;
       window.localStorage.setItem("sleep",param);
+    }
+    if (type == 6) {
+      settings.sound = param;
     }
     window.localStorage.setItem("settings",JSON.stringify(settings));
   }

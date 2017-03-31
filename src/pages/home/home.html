@@ -8,9 +8,9 @@
             <button (click)="settingsPage()" ion-button><ion-icon ios="ios-settings" md="md-settings"></ion-icon></button>
         </ion-buttons>
 
-        <ion-buttons end>
+        <!--<ion-buttons end>
             <button (click)="refresh()" ion-button><ion-icon ios="ios-refresh-circle" md="md-refresh-circle"></ion-icon></button>
-        </ion-buttons>
+        </ion-buttons>-->
     </ion-navbar>
 </ion-header>
 
@@ -39,11 +39,11 @@
     <!-- 5 min içerisinde pause olunca gösterilecek -->
     <button class="reset-timer black" (tap)="resetTimer5Min()" [hidden]="!last5minFinish">{{'finish'|translate}}</button>
 
-<!-- 
+
  <audio hidden id="beepaudio">
     <source src="assets/sounds/a_simple_beep.mp3" type="audio/mpeg">
-  </audio>
-    <audio hidden id="endaudio">
+ </audio>
+   <!-- <audio hidden id="endaudio">
     <source src="assets/sounds/end.mp3" type="audio/mpeg">
   </audio>
     <audio hidden id="endaudio2">

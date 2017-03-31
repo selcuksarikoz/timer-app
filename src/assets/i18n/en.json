@@ -19,5 +19,6 @@
     "disabled": "Disabled",
     "work": "WORK",
     "reset": "reset",
-    "finish": "finish"
+    "finish": "finish",
+    "attentionSound":"Attention Sound"
 }

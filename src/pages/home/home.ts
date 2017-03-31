@@ -194,14 +194,11 @@ export class HomePage {
   }
 
   checkTime(param: any) {
-    // let audio = <HTMLAudioElement>document.getElementById("beepaudio");
+    let audio = <HTMLAudioElement>document.getElementById("beepaudio");
     // let endaudio = <HTMLAudioElement>document.getElementById("endaudio");
     // let endaudio2 = <HTMLAudioElement>document.getElementById("endaudio2");
     // let first25 = <HTMLAudioElement>document.getElementById("first25");
     let settings = JSON.parse(window.localStorage.getItem("settings"));
-
-
-    
     
     if (param == 0) {
       window.clearInterval(this.interval);
@@ -230,7 +227,10 @@ export class HomePage {
       if(this.platform.is('android')) {
         console.log("uyarı sesi");
         this.attentionCounter = 0;
-        // audio.play();
+        console.log(settings.sound)
+        if (settings.sound == "true") {
+          audio.play();
+        }
       }
     }
 
@@ -241,8 +241,9 @@ export class HomePage {
   }
 
   ionViewWillEnter() {
-    if (!this.isInterval) {
-      let settings = JSON.parse(window.localStorage.getItem("settings"));
+    let settings = JSON.parse(window.localStorage.getItem("settings"));
+    if (this.totalSeconds !== settings.totalSeconds) {      
+      this.totalSeconds = settings.totalSeconds;
       if (settings) {
         let minutes: number = Math.floor((settings.totalSeconds % 3600) / 60);
         let seconds: number = (settings.totalSeconds % 3600) % 60;
