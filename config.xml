@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.selcuksarikoz.timerapp" version="1.3.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.selcuksarikoz.timerapp" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Easy Pomodoro Timer - Stay Focus</name>
   <description>Easy Pomodoro Timer - Stay Focus</description>
   <author email="benimpostahesabim@gmail.com" href="http://selcuksarikoz.com/">v2beta</author>
@@ -58,10 +58,8 @@
     <splash src="resources/ios/splash/Default-736h.png" width="1242" height="2208"/>
     <splash src="resources/ios/splash/Default-Landscape-736h.png" width="2208" height="1242"/>
     <splash src="resources/ios/splash/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
-    <splash src="resources/ios/splash/Default-Landscape@~ipadpro.png" width="2732" height="2048"/>
     <splash src="resources/ios/splash/Default-Landscape~ipad.png" width="1024" height="768"/>
     <splash src="resources/ios/splash/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
-    <splash src="resources/ios/splash/Default-Portrait@~ipadpro.png" width="2048" height="2732"/>
     <splash src="resources/ios/splash/Default-Portrait~ipad.png" width="768" height="1024"/>
     <splash src="resources/ios/splash/Default@2x~iphone.png" width="640" height="960"/>
     <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
@@ -72,9 +70,9 @@
   <preference name="BackupWebStorage" value="none"/>
   <preference name="FadeSplashScreenDuration" value="800"/>
   <preference name="SplashScreenBackgroundColor" value="0xFFFFFFFF"/>
-  <preference name="ShowSplashScreen" value="true"/>
+  <preference name="ShowSplashScreen" value="false"/>
   <preference name="SplashScreen" value="screen"/>
-  <preference name="SplashScreenDelay" value="3000"/>
+  <preference name="SplashScreenDelay" value="0"/>
   <preference name="AutoHideSplashScreen" value="true"/>
   <preference name="SplashShowOnlyFirstTime" value="false"/>
   <preference name="ShowSplashScreenSpinner" value="false"/>
