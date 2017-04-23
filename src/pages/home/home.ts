@@ -21,7 +21,7 @@ export class HomePage {
   waitBool:boolean = false;
   last5minFinish:boolean = false;
   click:number;
-  timeSpeed: number = 1000; // Time Speed 1000 normal, 10 fast
+  timeSpeed: number = 50; // Time Speed 1000 normal, 10 fast
 
   constructor(public platform: Platform, public translate: TranslateService, public navCtrl: NavController, public alertCtrl: AlertController) {
 
@@ -179,7 +179,6 @@ export class HomePage {
 
       }
     } else {
-      let sure = this.totalSeconds;
       console.log("başlamıştı duraklatıldı");
       window.clearInterval(this.interval);
       this.isInterval = false;
@@ -214,7 +213,7 @@ export class HomePage {
       }
 
       BackgroundMode.disable();
-      let brightnessValue: number = 0.8;
+      let brightnessValue: number = 0.3;
       Brightness.setBrightness(brightnessValue);
     } else if (param == 300) {
       if(this.platform.is('android')) {
@@ -226,8 +225,8 @@ export class HomePage {
     if (this.attentionCounter == settings.attention) {
       if(this.platform.is('android')) {
         console.log("uyarı sesi");
+        console.log(this.attentionCounter ,settings.attention);
         this.attentionCounter = 0;
-        console.log(settings.sound)
         if (settings.sound == "true") {
           audio.play();
         }
