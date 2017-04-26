@@ -4,9 +4,6 @@ import {StatusBar, Splashscreen, BackgroundMode} from 'ionic-native';
 import {TranslateService} from "ng2-translate";
 
 import { HomePage } from '../pages/home/home';
-import {enableProdMode} from "@angular/core";
-
-enableProdMode()
 
 @Component({
   templateUrl: 'app.html'
