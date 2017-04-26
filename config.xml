@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.selcuksarikoz.timerapp" version="2.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Easy Pomodoro Timer - Stay Focus</name>
-  <description>Easy Pomodoro Timer - Stay Focus</description>
+<widget id="com.selcuksarikoz.timerapp" version="2.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Easy Pomodroid Timer</name>
+  <description>Easy Pomodroid Timer</description>
   <author email="benimpostahesabim@gmail.com" href="http://selcuksarikoz.com/">v2beta</author>
   <content src="index.html"/>
   <access origin="*"/>
