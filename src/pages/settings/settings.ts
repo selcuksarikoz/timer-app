@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {TranslateService} from "ng2-translate";
-import {Insomnia} from "ionic-native";
+import { Insomnia } from '@ionic-native/insomnia';
 
 /*
   Generated class for the Settings page.
@@ -22,7 +22,7 @@ export class SettingsPage {
   sleepMode:string;
   attentionSound:boolean;
 
-  constructor(public translate:TranslateService, public navCtrl: NavController) {
+  constructor(public translate:TranslateService, public navCtrl: NavController, private insomnia: Insomnia) {
 
     let settings = JSON.parse(window.localStorage.getItem("settings"));
     let sleep = window.localStorage.getItem("sleep");
@@ -65,7 +65,7 @@ export class SettingsPage {
     if (type == 5) {
 
       if (param == "disabled") {
-        Insomnia.allowSleepAgain()
+        this.insomnia.allowSleepAgain()
           .then(
             () => console.log('success'),
             (error) => alert(error)

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
-import {StatusBar, Splashscreen, BackgroundMode} from 'ionic-native';
-import {TranslateService} from "ng2-translate";
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { BackgroundMode } from '@ionic-native/background-mode';
+import { TranslateService } from "ng2-translate";
 
 import { HomePage } from '../pages/home/home';
 
@@ -11,13 +12,13 @@ import { HomePage } from '../pages/home/home';
 export class MyApp {
   rootPage = HomePage;
 
-  constructor(public translate: TranslateService, platform: Platform) {
+  constructor(public translate: TranslateService, platform: Platform, private splashScreen: SplashScreen, private backgroundMode: BackgroundMode) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      Splashscreen.hide();
-      BackgroundMode.enable();
+      // StatusBar.styleDefault();
+      this.splashScreen.hide();
+      this.backgroundMode.enable();
     });
 
     let settings1 = window.localStorage.getItem("settings");
@@ -27,14 +28,14 @@ export class MyApp {
         totalSeconds: 1500,
         extraSeconds: 300,
         attention: 300,
-        sound:true,
+        sound: true,
       }
       window.localStorage.setItem("settings", JSON.stringify(data));
     }
 
     var settings = {
-      "language":"en",
-      "push":"false"
+      "language": "en",
+      "push": "false"
     }
 
     let settingsStorage = JSON.parse(window.localStorage.getItem("language"));
@@ -54,7 +55,7 @@ export class MyApp {
         translate.use('en');
         console.log("bulunamadı en oldu")
       }
-      window.localStorage.setItem("language",JSON.stringify(settings));
+      window.localStorage.setItem("language", JSON.stringify(settings));
 
     }
 

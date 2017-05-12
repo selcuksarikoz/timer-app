@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, Platform } from 'ionic-angular';
 import { SettingsPage } from "../settings/settings";
-import { BackgroundMode } from 'ionic-native';
-import { Brightness } from 'ionic-native';
+import { BackgroundMode } from '@ionic-native/background-mode';
+import { Brightness } from '@ionic-native/brightness';
 import { TranslateService } from "ng2-translate";
-import { Insomnia } from "ionic-native";
+import { Insomnia } from '@ionic-native/insomnia';
 
 @Component({
   selector: 'page-home',
@@ -26,6 +26,9 @@ export class HomePage {
     public translate: TranslateService,
     public navCtrl: NavController,
     public alertCtrl: AlertController,
+    private backgroundMode: BackgroundMode,
+    private brightness: Brightness,
+    private insomnia: Insomnia
   ) {
 
     window.localStorage.setItem("sleep", "enabled");
@@ -62,9 +65,9 @@ export class HomePage {
 
   intervalStart() {
     console.log("intervalStart");
-    BackgroundMode.enable();
+    this.backgroundMode.enable();
     let brightnessValue: number = 0.2;
-    Brightness.setBrightness(brightnessValue);
+    this.brightness.setBrightness(brightnessValue);
 
     this.interval = window.setInterval(() => {
       this.totalSeconds--;
@@ -107,7 +110,7 @@ export class HomePage {
 
       if (sleepMode == "enabled") {
         console.log("ekran acık")
-        Insomnia.keepAwake()
+        this.insomnia.keepAwake()
           .then(
           () => console.log('success'),
           (error) => alert(error)
@@ -206,9 +209,9 @@ export class HomePage {
       console.log("timer bitti");
       this.isInterval = false;
 
-      BackgroundMode.disable();
+      this.backgroundMode.disable();
       let brightnessValue: number = 0.6;
-      Brightness.setBrightness(brightnessValue);
+      this.brightness.setBrightness(brightnessValue);
     } else if (param == 300) {
       // if (this.platform.is('android')) {
       //   console.log("son 5 dakika kaldı")
